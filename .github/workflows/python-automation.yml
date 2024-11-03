@@ -1,0 +1,17 @@
+name: Close Stale Issues
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Runs daily
+
+jobs:
+  close-stale:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/stale@v4
+      with:
+        days-before-stale: 30
+        days-before-close: 7
+        stale-issue-message: "This issue has been automatically marked as stale."
+        stale-pr-message: "This pull request has been automatically marked as stale."
+        close-issue-message: "Closing this stale issue. Please reopen if needed."
